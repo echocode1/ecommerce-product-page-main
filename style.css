@@ -1,0 +1,486 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+:root{
+    --Orange: hsl(26, 100%, 55%);
+    --Pale-orange: hsl(25, 100%, 94%);
+    --Very-dark-blue: hsl(220, 13%, 13%);
+    --Dark-grayish-blue: hsl(219, 9%, 45%);
+    --Grayish-blue: hsl(220, 14%, 75%);
+    --Light-grayish-blue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+}
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+body{
+    font-family: 'Kumbh Sans';
+    font-size: 16px;
+    font-weight: 400;
+}
+.container{
+    max-width: 576px;
+    color: var(--Dark-grayish-blue);
+    line-height: 1.5;
+}
+img{
+    max-width: 100%;
+}
+/* mobile-top-headers*/
+#menu-icon, #menu-cart-icon{
+    display: flex;
+}
+#menu-icon, #menu-cart-icon{
+    align-items: center;
+}
+#menu-cart-icon img, #cart-icon, #menu-open-icon img{
+    width: 25px;
+    height: 25px;
+}
+#cart-num{
+    position: absolute;
+    top: 19px;
+    right: 60px;
+    padding: 0 10px;
+    background-color: var(--Orange);
+    border-radius: 50%;
+    font-size: 10px;
+    color: var(--White);
+}
+#menu-open-icon img{
+    position: relative;
+    top: 2px;
+    height: 15px;
+}
+#header{
+    justify-content: space-between;
+    background-color: var(--White);
+    padding:25px 25px;
+}
+#menu-open-icon, #cart-icon{
+    margin-right: 20px;
+    align-self: center;
+}
+#header,#nav-bar{
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+/* nav-bar-style*/
+#nav-bar{display: none;}
+#nav-main-view{
+    flex: 0 0 55%;
+    height: 100vh;
+    background-color: var(--White);
+    padding: 20px;
+}
+#exit-menu{
+    margin-bottom: 10vh;
+}
+li{
+    list-style: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--Very-dark-blue);
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+#nav-overlay{
+    flex: 0 0 45%;
+    height: 100vh;
+    background-color:hsl(0, 0%, 0%);
+    opacity: 70%;
+}
+
+/*combined style to deactivate button default features for icon*/
+#exit-menu,#delete,#cart-icon,
+#menu-open-icon{
+    background-color: var(--White);
+    border: none;
+}
+/* combibed style for hover effect */
+img, #add-to-cart, li{
+    cursor: pointer;
+}
+#logo{
+    cursor:auto;
+}
+li:hover{
+    color: var(--Orange);
+}
+
+/* article-basketfilled-style*/
+#basket-filled{
+    display: none;
+    position: fixed;
+    top: 85px;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
+    background-color: var(--White);
+    padding: 25px 20px;
+    margin:0 7px;
+}
+#basket-filled hr{
+    width: calc(100% + 40px);
+    margin: 30px -20px 25px -20px;
+    box-sizing: content-box;
+    border: none;
+    height: 1px;
+    background-color: rgb(243, 242, 242);
+}
+#basket-filled #prod1{
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+#basket-filled #heading{
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: var(--Very-dark-blue);
+}
+#product-calc{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#delete img{
+    width: 20px;
+    height: 20px;
+}
+strong{color: var(--Very-dark-blue);}
+#checkout{
+    width: 99%;
+    padding: 20px 0;
+    font-family: 'Kumbh Sans';
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    background-color: var(--Orange);
+    color: var(--Very-dark-blue);
+    margin: 10px 0;
+}
+/* basket empty style */
+#product-checkout{
+    display: block;
+}
+#empty-response{
+    height: 140px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+/* product-images-style */
+#light-box img{
+    display: none;
+}
+#light-box{
+    margin-top: 70px;
+}
+#light-box img.active{
+    display: block;
+}
+#select-icons{
+    position: absolute;
+    top: 30%;
+    display: flex;
+    justify-content: space-between;
+    right: 0;
+    left: 0;
+    padding: 0 15px;
+}
+#previous-icon, #next-icon{
+    width: 45px;
+    height: 45px;
+    background-color: var(--White);
+    border-radius: 50%;
+    border:none;
+    align-self: center;
+}
+#sneaker-product2{
+    display: none;
+}
+/*text-section*/
+.text__section{
+    padding: 25px 25px;
+    color: var(--Dark-grayish-blue);
+}
+#light-header{
+    font-size: 1.1rem;
+}
+.text__section h2{
+    font-size: 2rem;
+    line-height: 1.1;
+    color: var(--Very-dark-blue);
+    margin: 15px 0 20px 0;
+}
+#text{
+    margin-bottom: 25px;
+}
+/* cart-pricing-style*/
+#cart__pricing, #discounted-price,
+#cart-preference, #add-to-cart{
+    display: flex;
+    align-items: center;
+}
+#cart__pricing,#cart-preference{
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+#discounted-price{
+    align-items: center;
+}
+#price{
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--Very-dark-blue);
+    margin-right: 20px;
+}
+#percent{
+    padding: 0 10px;
+    font-size: 18px;
+    background-color: var(--Very-dark-blue);
+    color: var(--White);
+    border-radius: 5px;
+}
+#previous-price{
+    text-decoration: line-through;
+    font-weight: bold;
+}
+/*cart-prefernec-style*/
+#cart-preference, #add-to-cart{
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+#cart-preference, #minus-icon, #plus-icon{
+    background-color: var(--Light-grayish-blue);
+}
+#minus-icon, #plus-icon, #add-to-cart{
+    border: none;
+}
+#result-input{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+/* add to cart-style*/
+#add-to-cart{
+    width: calc(100% - 50px);
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background-color: var(--Orange);
+    box-shadow:0 30px 25px var(--Pale-orange); 
+    margin-bottom:7vh;
+    transition: 0.25s ease-out;
+}
+#add-to-cart:hover{
+    background-color: hsl(26, 100%, 80%);
+    box-shadow: none;
+}
+#add-to-cart img{
+    margin-right: 20px;
+}
+
+/* desktop-style */
+@media (min-width:576px){
+    .container{
+        max-width: 100vw;
+        margin: 5vh 12vw;
+        align-items: center;
+    }
+    /* return all positioned to default */
+    #header,#nav-bar,#main__nav,#nav,
+    .main-container{
+        position: static;
+        display: flex;
+    }
+    #nav-main-view{
+        height: auto;
+        padding: 0;
+        align-items: center;
+    }
+    #nav-overlay,#exit-menu,#menu-open-icon,
+    #select-icons{
+        display: none;
+    }
+    #light-box img{
+        display: block;
+    }
+    /*desktop-header-style*/
+    #header, #main__nav,.main-container{
+       align-items: center;
+    }
+    #header{
+        padding: 0;
+        margin: 20px 0;
+    }
+    #nav-bar li{
+        margin: 0;
+        margin-right: 25px;
+        font-weight: 400;
+
+    }
+    #top-headings {
+        margin-right: 50px;
+    }
+    #menu-cart-icon #profile-pics{
+        width: 50px;
+        height: 50px;
+        margin-left: 20px;
+    }
+    #cart-num{
+        right: 17.2%;
+        top: 45px;
+        font-size: 14px;
+    }
+    /* main-container-style*/
+    .main-container{
+        justify-content: center;
+        align-items: center;
+        margin:10vh auto;
+        padding:0 50px 0 50px;
+    }
+    hr{
+        margin: 5vh 0 20px 0;
+        border: none;
+        height: 1px;
+        background-color: hsl(0, 6%, 91%);
+    }
+    #sneaker__thumbnail1 img,
+    #sneaker__thumbnail2 img{
+        width: 90px;
+        border-radius: 10px;
+    }
+    #sneaker__thumbnail1, #sneaker__thumbnail2{
+        display: none;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    #sneaker__thumbnail2{
+        display: flex;
+    }
+    #active{
+        border-radius: 15px;
+    }
+    #light-box__selector, .active{
+        border: 2px solid var(--Orange);
+        border-radius: 10px;
+    }
+    #light-box__selector img{
+        height: 100%;
+        opacity: 30%;
+    }
+    #sneaker-product2{
+        display: block;
+        margin-right: 8vw;
+        flex: 0 0 45%;
+    }
+    /* light-box-style */
+    #light-box {
+        display: none;
+        border-radius: 15px;
+        position: absolute;
+        width: 560px;
+        left: 50%;
+        top: 48%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        height: 700px;
+    }
+    #sneaker-product1 img{
+        display: none;
+        border-radius: 15px;
+        border: none;
+    }
+    #sneaker__thumbnail1{
+        justify-content: space-evenly;
+        margin: 35px 20px;
+    }
+    #select-icons{
+        display: none;
+        position: relative;
+        z-index: 3;
+        width: 590px;
+        transform: translate( 40%, 100%);
+        top: 230px;
+        left: -20px;
+    }
+    #nav-overlay{
+        display: none;
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        left: 0;
+        top: 0;
+        z-index: 1;
+    }
+    #exit-menu{
+        display: none;
+        position: absolute;
+        top: 16%;
+        right: 31%;
+        color: var(--White);
+        z-index: 5;
+        background: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    #exit-menu:hover{
+        color: var(--Orange);
+    }
+    /* text-section */
+    .text__section{
+        padding: 0;
+        flex: 0 0 45%;
+    }
+    #light-header{
+        font-size: 16px;
+    }
+    .text__section h2{
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        letter-spacing: 1px;
+    }
+    #cart__pricing{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #previous-price{
+        margin: 10px 0 20px 0;
+    }
+    #cart-main{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #cart-preference{
+        flex: 0 0 25%;
+        margin: 0;
+    }
+    #add-to-cart{
+        flex: 0 0 48%;
+        margin: 0;
+        padding: 20px 25px;
+        box-shadow: none;
+    }
+    #basket-filled{
+        display: none;
+        width: 325px;
+        right: 85px;
+        left: auto;
+        top: 100px;
+        border: 1px solid var(--Light-grayish-blue);
+        box-shadow: -1px 10px 30px  var(--Light-grayish-blue);
+    }
+}
