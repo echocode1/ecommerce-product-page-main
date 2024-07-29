@@ -22,10 +22,13 @@ document.addEventListener('DOMContentLoaded',() => {
             thumbnails.style.display = 'none';
             prev_next_icon.style.display = 'none';
             overlay.style.display = 'none';
-            document.querySelector('.main-container').style.margin = '7vh auto';
+            document.querySelector('.main-container').style.margin = '7vh auto 0 auto';
             document.getElementById('exit-menu').innerHTML = `
-             <img src="images/icon-close.svg" alt="exit-menu">`
+            <img src="images/icon-close.svg" alt="exit-menu">`
             document.getElementById('exit-menu').style.display = 'none';
+        }
+        if(window.innerWidth > 1000 ){
+            document.querySelector('.main-container').style.margin = '12vh auto 0 auto';
         }
     }
     closeMenu.onclick = exitMenu;
@@ -107,19 +110,43 @@ document.addEventListener('DOMContentLoaded',() => {
 
     function basketFull(){
         let num = Number(cartAmount.textContent);
-        prev_next_icon.style.display = 'none'
-       if(num > 0){
-        cartCalc.innerHTML = `
-        <p> $125.00 x ${num}  <strong>$${(125 * num)}</strong> </p>
-        `
-        basketContainer.style.display = 'block';
-       }else{
-        basketContainer.style.display = 'block';
-        emptyBasket.style.display = 'none';
-        emptyResponse.style.display = 'flex';
-       }
+        prev_next_icon.style.display = 'none';
+        if(basketContainer.style.display === 'block' &&
+            emptyBasket.style.display === 'none' && 
+            emptyResponse.style.display === 'flex'
+        ){
+            basketContainer.style.display = 'none'
+        }else{
+            if(num > 0){
+                cartCalc.innerHTML = `
+                <p> $125.00 x ${num}  <span id ='result'>$${(125 * num).toFixed(2,0)}</span> </p>
+                `
+                basketContainer.style.display = 'block';
+            }else{
+                basketContainer.style.display = 'block';
+                emptyBasket.style.display = 'none';
+                emptyResponse.style.display = 'flex';
+            }
+        }
     }
     cart.addEventListener('click', basketFull)
+
+    /*function to delete items from basket-full*/
+    const deleteIcon = document.getElementById('delete')
+    function deleteItem(){
+        const cartNum = Number(cartAmount.textContent);
+        if(cartNum > 1){
+            cartAmount.textContent = cartNum - 1;
+            cartCalc.innerHTML = 
+            `<p> $125.00 x ${cartNum - 1}  <span id ='result'>$${(125 * (cartNum - 1)).toFixed(2,0)}</span> </p>`
+        }else{
+            cartAmount.textContent = '';
+            basketContainer.style.display = 'block';
+            emptyBasket.style.display = 'none';
+            emptyResponse.style.display = 'flex';
+        }
+    }
+    deleteIcon.addEventListener('click', deleteItem)
 
     /* function to checkout carts */
     let checkout = document.getElementById('checkout');
@@ -143,14 +170,44 @@ document.addEventListener('DOMContentLoaded',() => {
     let overlay = document.getElementById('nav-overlay');
 
     function lightBoxDisplay(){
-        lightBox.style.display = 'block';
-        thumbnails.style.display = 'flex';
-        prev_next_icon.style.display = 'flex';
-        overlay.style.display = 'block';
-        document.querySelector('.main-container').style.margin = 'auto';
-        document.getElementById('exit-menu').innerHTML = 'X';
-        document.getElementById('exit-menu').style.display = 'block';
+        if(imgSelector.innerHTML ===
+            `<img id="active" src="images/image-product-1.jpg" alt="sneaker-pics1">`)
+        {
+            if(window.innerWidth > 576){
+                lightBox.style.display = 'block';
+                thumbnails.style.display = 'flex';
+                prev_next_icon.style.display = 'flex';
+                overlay.style.display = 'block';
+                document.querySelector('.main-container').style.margin = '7vh auto 0 auto';
+                document.getElementById('exit-menu').innerHTML = 'X';
+                document.getElementById('exit-menu').style.display = 'block';
+            }
+            if(window.innerWidth > 1000 ){
+                document.querySelector('.main-container').style.margin = '12vh auto 0 auto';
+            }
+        }
+        else{
+            imgSelector.innerHTML =
+            `<img id="active" src="images/image-product-1.jpg" alt="sneaker-pics1">`
+        }
     }
     selector.addEventListener('click', lightBoxDisplay);
+    
+    let thumbnail2 = document.getElementById('light-box__selector2');
+    let thumbnail3 = document.getElementById('light-box__selector3');
+    let thumbnail4 = document.getElementById('light-box__selector4');
+    let imgSelector = document.getElementById('main-selector')
+    thumbnail2.onclick = () => {
+        imgSelector.innerHTML = 
+        `<img src="images/image-product-2-thumbnail.jpg" alt="product-thumbnail2">`
+    }
+    thumbnail3.onclick = () => {
+        imgSelector.innerHTML = 
+        `<img src="images/image-product-3-thumbnail.jpg" alt="product-thumbnail3">`
+    }
+    thumbnail4.onclick = () => {
+        imgSelector.innerHTML = 
+        `<img src="images/image-product-4-thumbnail.jpg" alt="product-thumbnail4">`
+    }
 
 })
