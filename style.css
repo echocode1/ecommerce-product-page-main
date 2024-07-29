@@ -297,7 +297,7 @@ strong{color: var(--Very-dark-blue);}
 }
 
 /* desktop-style */
-@media (min-width:576px) and (max-width : 1440px){
+@media (min-width:576px){
     .container{
         max-width:100vw;
         margin: 5vh 5vw;
@@ -514,7 +514,7 @@ strong{color: var(--Very-dark-blue);}
         box-shadow: -1px 10px 30px  var(--Light-grayish-blue);
     }
 }
-@media (min-width:900px) and (max-width:1440px){
+@media (min-width:900px){
     .container{
         margin: 4vh 10vw;
     }
